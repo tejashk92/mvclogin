@@ -25,7 +25,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		 final String username = (authentication.getPrincipal() == null) ? "NONE_PROVIDED" : authentication.getName();
-	        if (StringUtils.isEmpty(username)) {
+	        if (!StringUtils.hasText(username)) {
 	            throw new BadCredentialsException("invalid login details");
 	        }
 		try {
@@ -61,5 +61,5 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	public boolean supports(Class<?> authentication) {
 		return authentication.equals(UsernamePasswordAuthenticationToken.class);
 	}
-
+	
 }
