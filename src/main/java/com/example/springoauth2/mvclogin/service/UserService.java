@@ -4,6 +4,7 @@ package com.example.springoauth2.mvclogin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +19,7 @@ import com.example.springoauth2.mvclogin.pojo.CustomUser;
 import com.example.springoauth2.mvclogin.pojo.UserResponse;
 
 @Service
+@PropertySource("classpath:mvclogin.properties")
 public class UserService {
 	
 	@Autowired
